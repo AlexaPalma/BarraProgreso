@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detalle de Diligencias</title>
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("li").click(function(){
+			/*alert("encontro algo"+$("li.active-step").index());
+			return;*/
+			var clicado = $("li").index(this);
+			var actual = $("li.active-step").index();
+			/*console.log($("fase"+actual));
+			return;*/
+			$("#fase"+actual).css({'display':'inline-block', 'position':'clearfix', 'opacity':'1'}).animate({'opacity':'0','left':'30%'}, 1000);
+			//$(this).delay(1000);
+			$("#fase"+clicado).css({'display':'inline-block', 'position':'clearfix', 'opacity':'0'}).animate({'opacity':'1','left':'35%'}, 1000);
+			$("li").each(function( i ){
+				if(i === clicado)
+				{
+					$(this).removeClass("finished-step").addClass("active-step");
+					//alert("mismo"+i);
+				}else{
+					$(this).removeClass("active-step").addClass("finished-step");
+					//alert(i);
+				}
+			});
+		});
+
+	});
+		
+	</script>
+	<style type="text/css">
+.visuallyhidden {
+    display: none;
+}
+
+.wizard-progress {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    float: left;
+    white-space: nowrap;
+}
+
+.wizard-progress li {
+    float: left;
+    margin-right: 50px;
+    text-align: center;
+    position: relative;
+    width: 100px;
+}
+
+.wizard-progress .step-name {
+    display: table-cell;
+    height: 32px;
+    vertical-align: bottom;
+    text-align: center;
+    width: 100px;
+}
+
+.wizard-progress .step-name-wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: bottom;
+}
+
+.wizard-progress .step-num {
+    font-size: 14px;
+    font-weight: bold;
+    border: 3px solid #000;
+    border-radius: 50%;
+    width: 18px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/*.wizard-progress .step-num:after {
+    content: "";
+    display: block;
+    background: #000;
+    height: 5px;
+    width: 130px;
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+}*/
+
+.wizard-progress li:last-of-type .step-num:after {
+    display: none;
+}
+
+.wizard-progress .active-step .step-num {
+    background-color: #fff000;
+}
+.wizard-progress .finished-step .step-num {
+    background-color: #444444;
+}
+.step-after{
+    content: "";
+    display: block;
+    background: #000;
+    height: 5px;
+    width: 130px;
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+}
+
+	</style>
+</head>
+<body>
+<div style="width:800px;margin:0 100;left:30%;position:relative;">
+	<div style="width:800px;display:inline-block;">
+		<div id="fase0" style="display:none;position:fixed;left:30%;">
+			<label>N&deg; Mandamiento: </label><input style="text-align:center;" id="idme" name="idme" type="text" value="35"/><br/>
+			<label>Expediente/ <br/>N&deg; de Cr&eacute;dito: </label><input style="text-align:center;" id="exped" name="exped" type="text" value="expeidnete 32-as78"/><br/>
+			<label>DDC/<br/> Oficio de Multa: </label><input style="text-align:center;" id="ddc" name="ddc" type="text" value="68898asdfasd"/><br/>
+			<label>N&deg; de Oficio: </label><input style="text-align:center;" id="oficio" name="oficio" type="text" value="OD/DS/7487/asd-48"/><br/>
+			<label>Estado: </label><input style="text-align:center;" id="estado" name="estado" type="text" value="Citatorio"/><br/>
+		</div>
+		<div id="fase1" style="display:none;position:fixed;left:30%;">
+			<label>N&deg; Mandamiento: </label><input style="text-align:center;" id="idme" name="idme" type="text" value="35"/><br/>
+			<label>Expediente/ <br/>N&deg; de Cr&eacute;dito: </label><input style="text-align:center;" id="exped" name="exped" type="text" value="expeidnete 32-as78"/><br/>
+			<label>DDC/<br/> Oficio de Multa: </label><input style="text-align:center;" id="ddc" name="ddc" type="text" value="68898asdfasd"/><br/>
+			<label>N&deg; de Oficio: </label><input style="text-align:center;" id="oficio" name="oficio" type="text" value="OD/DS/7487/asd-48"/><br/>
+			<label>Estado: </label><input style="text-align:center;" id="estado" name="estado" type="text" value="Acta Requerimiento"/><br/>
+		</div>
+		<div id="fase2" style="display:inline-block;position:fixed;left:30%;">
+			<label>N&deg; Mandamiento: </label><input style="text-align:center;" id="idme" name="idme" type="text" value="35"/><br/>
+			<label>Expediente/ <br/>N&deg; de Cr&eacute;dito: </label><input style="text-align:center;" id="exped" name="exped" type="text" value="expeidnete 32-as78"/><br/>
+			<label>DDC/<br/> Oficio de Multa: </label><input style="text-align:center;" id="ddc" name="ddc" type="text" value="68898asdfasd"/><br/>
+			<label>N&deg; de Oficio: </label><input style="text-align:center;" id="oficio" name="oficio" type="text" value="OD/DS/7487/asd-48"/><br/>
+			<label>Estado: </label><input style="text-align:center;" id="estado" name="estado" type="text" value="Acta Embargo"/><br/>
+		</div>
+		<div id="fase3" style="display:none;position:fixed;left:30%;">
+			<label>N&deg; Mandamiento: </label><input style="text-align:center;" id="idme" name="idme" type="text" value="35"/><br/>
+			<label>Expediente/ <br/>N&deg; de Cr&eacute;dito: </label><input style="text-align:center;" id="exped" name="exped" type="text" value="expeidnete 32-as78"/><br/>
+			<label>DDC/<br/> Oficio de Multa: </label><input style="text-align:center;" id="ddc" name="ddc" type="text" value="68898asdfasd"/><br/>
+			<label>N&deg; de Oficio: </label><input style="text-align:center;" id="oficio" name="oficio" type="text" value="OD/DS/7487/asd-48"/><br/>
+			<label>Estado: </label><input style="text-align:center;" id="estado" name="estado" type="text" value="Informe PAND"/><br/>
+		</div>
+	</div>
+	<div style="width:800px;display:inline-block;margin-top:150px;">
+			<ol class="wizard-progress clearfix">
+			    <li class="finished-step">
+			        <span class="step-name" >
+			            Citatorio
+			        </span>
+			        <span class="visuallyhidden">Step </span><span class="step-num" style="cursor:pointer;" onclick="">1</span>
+			        <span class="step-after"></span>
+			    </li>
+			    <li class="finished-step">
+			        <span class="step-name">Acta Req.</span>
+			        <span class="visuallyhidden">Step </span><span class="step-num" style="cursor:pointer;">2</span>
+			        <span class="step-after"></span>
+			    </li>
+			    <li class="active-step">
+			        <span class="step-name">Acta Emb.</span>
+			        <span class="visuallyhidden">Step </span><span class="step-num" style="cursor:pointer;">3</span>
+			        <span class="step-after"></span>
+			    </li>
+			    <li class="finished-step"> 
+			        <span class="step-name">Informe PAND</span>
+			        <span class="visuallyhidden">Step </span><span class="step-num" style="cursor:pointer;">4</span>
+			    </li>
+			</ol>
+	</div>
+</div>
+</body>
+</html>
